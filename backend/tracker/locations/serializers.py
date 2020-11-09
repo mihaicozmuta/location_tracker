@@ -3,7 +3,6 @@ from locations.models import Client
 
 #serializer
 class user_serializer(serializers.ModelSerializer):
-
-    class Metta:
+    class Meta:
         model = Client
-        fiels = '__all__'
+        fields = '__all__'
