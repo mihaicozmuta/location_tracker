@@ -5,7 +5,6 @@ from .serializers import user_serializer
 
 
 #Clients' viewset
-
 class user_viewset(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     permissions_classes =  [

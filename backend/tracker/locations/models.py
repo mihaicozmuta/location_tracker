@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from rest_framework import serializers
+from locations.validations import name_validator
 
 #the model which contains all the user details that we need
 class Client(models.Model):
-    name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100, validators=[name_validator])
+    last_name = models.CharField(max_length=100, validators=[name_validator])
     email = models.CharField(max_length=100, unique=True)
     password = User.password
-    latitude = models.FloatField(default=0)
-    longitude = models.FloatField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
