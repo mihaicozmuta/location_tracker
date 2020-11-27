@@ -10,6 +10,12 @@ def name_validator(name:str):
 def mail_validator(mail:str):
     if '@' not in mail:
         raise serializers.ValidationError('This is not a vaild e-mail')
-    if '.com' or '.ro' not in mail:
-        raise serializers.ValidationError('This is not a valid e-mail')
     return mail 
+
+
+def pass_validator(pwd:str):
+    if pwd is None:
+        raise serializers.ValidationError('Please include a password')
+    elif len(pwd) < 7:
+        raise serializers.ValidationError('The password must have least 8 characters')
+    return pwd
