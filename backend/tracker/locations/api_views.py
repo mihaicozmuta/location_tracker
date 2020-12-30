@@ -6,9 +6,9 @@ from rest_framework.permissions import IsAuthenticated
 
 #Clients' viewset
 class UserViewset(viewsets.ModelViewSet):
-
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = [permissions.AllowAny]
 
 #Locations viewset
 class LocationsViewset(viewsets.ModelViewSet):
