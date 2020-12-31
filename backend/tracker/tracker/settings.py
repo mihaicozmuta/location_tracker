@@ -45,8 +45,8 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication', 
-    ],
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ]
 }
 
 MIDDLEWARE = [
@@ -139,3 +139,4 @@ ALLOWED_HOSTS = ['*']
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+

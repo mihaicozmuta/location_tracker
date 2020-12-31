@@ -6,6 +6,14 @@ from django.contrib.auth.models import User
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
+        fields = ('id', 'username','first_name', 'last_name')
+        
+
+
+#serializer for the user registration 
+class UserRegistration(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
         fields = ('id','first_name', 'last_name', 'username', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
@@ -15,7 +23,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
-
 
 
 #serializer for locations (Locations)

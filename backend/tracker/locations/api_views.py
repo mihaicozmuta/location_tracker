@@ -1,16 +1,38 @@
 from locations.models import Profile, Locations
-from rest_framework import viewsets, permissions
-from .serializers import ProfileSerializer, LocationsSerializer
+from . import models
+from rest_framework import viewsets, permissions, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import ProfileSerializer, LocationsSerializer, UserRegistration
 from rest_framework.permissions import IsAuthenticated 
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+
+class UserAuthentication(ObtainAuthToken):
+    def post(self, requests, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data, context={'request':request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_Create(user=user)
+        return Response(token.key)
 
 
-#Clients' viewset
+#Users' viewset
 class UserViewset(viewsets.ModelViewSet):
-    queryset = Profile.objects.all()
+    permission_classes = [IsAuthenticated] 
+    queryset = models.Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [permissions.AllowAny]
+    http_method_names = ['get', 'delete', 'put', 'patch']
+    #permission_classes = [permissions.AllowAny]
 
 #Locations viewset
 class LocationsViewset(viewsets.ModelViewSet):
-    queryset = Locations.objects.all()
+    permission_classes = [IsAuthenticated]
+    queryset = models.Locations.objects.all()
     serializer_class = LocationsSerializer
+
+#Registration view
+class RegistrationView(viewsets.ModelViewSet):
+    queryset = ''
+    serializer_class = UserRegistration
+
