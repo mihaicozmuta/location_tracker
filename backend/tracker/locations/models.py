@@ -16,4 +16,6 @@ class Locations(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     latitude = models.FloatField()
     longitude = models.FloatField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
     

@@ -45,7 +45,7 @@ class LocationsViewset(viewsets.ModelViewSet):
     queryset = models.Locations.objects.all()
     serializer_class = LocationsSerializer
     #filter_backends = (django_filters.rest_framework.DjangoFilterBackend)
-    filter_fields = ["user"]
+    filter_fields = ["start_time"]
     permission_classes = [IsAuthenticated]
     def get_queryset(self):
         queryset = self.queryset.filter(user=self.request.user.id)
