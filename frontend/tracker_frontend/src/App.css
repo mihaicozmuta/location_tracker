@@ -1,38 +1,113 @@
 .App {
   text-align: center;
+  /* min-height: 100vh;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 100px; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.cards {
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: khaki;
+  background-image: url("https://st2.depositphotos.com/3958107/8681/v/450/depositphotos_86813392-stock-illustration-simple-recipe-card-with-mason.jpg");
+  height: 300px;
+  width: 320px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  margin-left: 50px;
+  float: left;
+  margin-right: 5%;
+  margin-left: 8%;
+  margin-top: 90px;
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+}
+
+.card_title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.title {
+  padding-top: 0;
+  align-items: center;
+  position: fixed;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 5vh;
+  background-color: rgb(231, 153, 125);
+  opacity: 0.8;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.links-nav {
+  width: 40%;
+  display: felx;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li {
+  display: inline;
+  float: right;
+  margin-right: 80px;
 }
+
+
+div {
+  width: 100%;
+}
+.home_background {
+  top: 5%;
+  left: 0;
+  right: 0;
+  height: 1080px;
+  background:url("https://originalmap.co.uk/wp-content/uploads/2019/08/Large-World-Map_Original-Map-1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+h1{
+  margin: 0;
+}
+.recipe_detail {
+  background-position:top;
+  height: 1000px;
+  background-color: rgb(243, 233, 174);
+  background-size: cover;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  
+
+}
+
+
+.form-elegant .font-small {
+  font-size: 0.8rem; }
+
+.form-elegant .z-depth-1a {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+  box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25); }
+
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+  -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }

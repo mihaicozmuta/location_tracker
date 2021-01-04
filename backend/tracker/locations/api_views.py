@@ -35,7 +35,6 @@ class UserViewset(viewsets.ModelViewSet):
             self.permission_classes = [IsOwner]
         if self.action == 'update':
             self.permission_classes = [IsOwner]
-
         return super(self.__class__, self).get_permissions()
     #permission_classes = [permissions.AllowAny]
 
