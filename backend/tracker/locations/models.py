@@ -11,11 +11,11 @@ class Profile(User):
     last_name = User.last_name
     email = User.email
 
-   
+#the Locations model which contains a fk to the user model   
 class Locations(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    start_time = models.TimeField()
-    end_time = models.TimeField()
+    start_date = models.DateField(auto_now_add=True)
+    end_date = models.DateField()
     

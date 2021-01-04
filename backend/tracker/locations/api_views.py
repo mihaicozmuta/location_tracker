@@ -22,16 +22,18 @@ class UserAuthentication(ObtainAuthToken):
 
 #Users' viewset
 class UserViewset(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated] 
+    permission_classes = [IsAuthenticated]
+    pagination_class = [permissions.AllowAny] 
     queryset = models.Profile.objects.all()
     serializer_class = ProfileSerializer
     http_method_names = ['get', 'delete', 'put', 'patch']
     def get_permissions(self):
         # Overrides to tightest security: Only superuser can create, update, partial update, destroy, list
         self.permission_classes = [IsSuperUser]
-
         # Allow only by explicit exception
         if self.action == 'retrieve':
+            self.permission_classes = [IsOwner]
+        if self.action == 'update':
             self.permission_classes = [IsOwner]
 
         return super(self.__class__, self).get_permissions()
@@ -45,7 +47,7 @@ class LocationsViewset(viewsets.ModelViewSet):
     queryset = models.Locations.objects.all()
     serializer_class = LocationsSerializer
     #filter_backends = (django_filters.rest_framework.DjangoFilterBackend)
-    filter_fields = ["start_time"]
+    filter_fields = ["start_time", "end_time"]
     permission_classes = [IsAuthenticated]
     def get_queryset(self):
         queryset = self.queryset.filter(user=self.request.user.id)
