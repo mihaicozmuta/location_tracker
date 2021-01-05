@@ -12,15 +12,18 @@ function Nav() {
       </Link>
 
       <ul className="links-nav">
-        <Link style={navStyle} to="/about">
-          <li>About us</li>
+        <Link style={navStyle} to="/location">
+          <li>Location</li>
         </Link>
-        <Link style={navStyle} to="/users">
+        {/* <Link style={navStyle} to="/users">
           <li>Profile</li>
         </Link>
         <Link style={navStyle} to="/login">
           <li>Login</li>
         </Link>
+        <Link style={navStyle} to="/registration">
+          <li>Register</li>
+        </Link> */}
       </ul>
     </nav>
   );

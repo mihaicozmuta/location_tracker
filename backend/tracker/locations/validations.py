@@ -19,3 +19,10 @@ def pass_validator(pwd:str):
     elif len(pwd) < 7:
         raise serializers.ValidationError('The password must have least 8 characters')
     return pwd
+
+
+def coordinates_validator(lat:float):
+    if lat is None:
+        raise serializers.ValidationError('Please include both latitude and longitude')
+    if lat < 0:
+        raise serializers.ValidationError('Latitude and Longitude cannot be negative numbers')

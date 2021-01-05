@@ -26,7 +26,7 @@ class UserViewset(viewsets.ModelViewSet):
     pagination_class = [permissions.AllowAny] 
     queryset = models.Profile.objects.all()
     serializer_class = ProfileSerializer
-    http_method_names = ['get', 'delete', 'put', 'patch']
+    http_method_names = ['get', 'delete', 'put', 'patch', 'options']
     def get_permissions(self):
         # Overrides to tightest security: Only superuser can create, update, partial update, destroy, list
         self.permission_classes = [IsSuperUser]
@@ -46,7 +46,7 @@ class LocationsViewset(viewsets.ModelViewSet):
     queryset = models.Locations.objects.all()
     serializer_class = LocationsSerializer
     #filter_backends = (django_filters.rest_framework.DjangoFilterBackend)
-    filter_fields = ["start_time", "end_time"]
+    filter_fields = ["start_date", "end_date"]
     permission_classes = [IsAuthenticated]
     def get_queryset(self):
         queryset = self.queryset.filter(user=self.request.user.id)
@@ -64,6 +64,7 @@ class LocationsViewset(viewsets.ModelViewSet):
 
 #Registration view
 class RegistrationView(viewsets.ModelViewSet):
-    queryset = ''
+    queryset = models.Profile.objects.all()
+    http_method_names = ['post', 'options']
     serializer_class = UserRegistration
 
